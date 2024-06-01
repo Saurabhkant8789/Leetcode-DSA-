@@ -3,29 +3,30 @@ class Solution {
         if (strs == null || strs.length == 0) {
             return "";
         }
+        String oo = "";
         
-        String shortestString = strs[0];
-        
-        // Find the shortest string in the array
-        for (int i = 1; i < strs.length; i++) {
-            if (strs[i].length() < shortestString.length()) {
-                shortestString = strs[i];
+     String min = strs[0];
+        for(int i=0; i<strs.length;i++){
+            if(strs[i].length()<min.length()){
+                min =strs[i];
             }
         }
         
-        StringBuilder commonPrefix = new StringBuilder();
-        
-        // Compare characters at each index of the shortest string with other strings
-        for (int i = 0; i < shortestString.length(); i++) {
-            char currentChar = shortestString.charAt(i);
-            for (String str : strs) {
-                if (str.charAt(i) != currentChar) {
-                    return commonPrefix.toString();
-                }
+        for(int i=0; i<min.length();i++){
+            char xy = min.charAt(i);
+            
+            for(int j=0; j<strs.length;j++){
+                // if(i<strs[j].length()){
+                if(xy != strs[j].charAt(i)){
+                    
+                 return oo;
+             // }
+                    
             }
-            commonPrefix.append(currentChar);
+            
+            }  oo = oo+xy;
         }
+        return oo;
         
-        return commonPrefix.toString();
     }
 }
