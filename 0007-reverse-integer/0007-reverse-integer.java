@@ -3,8 +3,8 @@ class Solution {
         
         long ans =0;
         while(x!=0){
-            
-            ans = ans*10 + (long)(x%10);
+            long temp = x%10;
+            ans = ans*10 + temp;
             x = x/10;
         }
         if(ans > 2147483647 || ans < -2147483648){
