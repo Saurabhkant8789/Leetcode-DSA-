@@ -15,14 +15,6 @@ class Solution {
                 ans--;
                   }
         }
-        
-            while(sau>=0){
-                nums1[ans] = nums1[sau] ;
-                sau--;
-                ans--;
-            }
-        
-       
             while(tan>=0){
                 nums1[ans] = nums2[tan] ;
                 tan--;      
