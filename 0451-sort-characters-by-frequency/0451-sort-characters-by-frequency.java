@@ -1,9 +1,9 @@
 class Solution {
     public String frequencySort(String s) {
         String ans = "";
-        int[] count = new int[128]; // Use 128 as the array length to cover all ASCII characters
+        int[] count = new int[128]; 
         for (int i = 0; i < s.length(); i++) {
-            count[s.charAt(i)]++; // Increment count based on the ASCII value of the character
+            count[s.charAt(i)]++; 
         }
         for (int i = 0; i < s.length(); i++) {
             char c = frequency(count);
