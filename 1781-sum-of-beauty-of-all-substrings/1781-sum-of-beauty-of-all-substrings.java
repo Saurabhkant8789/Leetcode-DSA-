@@ -3,10 +3,10 @@ class Solution {
         
         int sum = 0;
         for(int i=0; i<s.length(); i++){
-            int [] newarr = new int[128];
+            int [] newarr = new int[28];
             
             for( int j=i; j<s.length(); j++){
-                newarr [(int)s.charAt(j)]++; 
+                newarr [(int)s.charAt(j)-(int)'a']++; 
                 sum = sum + beauty(newarr);
                 
             }
