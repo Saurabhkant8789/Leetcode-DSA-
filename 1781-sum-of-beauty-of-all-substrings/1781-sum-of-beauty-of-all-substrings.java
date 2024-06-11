@@ -13,8 +13,7 @@ class Solution {
         }
         return sum;
     }
-    
-    
+        
     public static int beauty (int[] arr){
         int max = -1;
         int min = Integer.MAX_VALUE;
