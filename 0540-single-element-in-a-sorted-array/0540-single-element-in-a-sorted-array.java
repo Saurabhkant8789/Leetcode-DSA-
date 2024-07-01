@@ -9,25 +9,22 @@ class Solution {
         
         while (start <= end) {
             int mid = start + (end - start) / 2;
-            
-           
-            if (mid % 2 == 0) {
-                // If mid is even, check both sides of mid
-                if (mid != 0 && nums[mid] == nums[mid - 1]) {
-                    end = mid - 2; // Move end to the left of mid-1
-                } else if (mid != nums.length - 1 && nums[mid] == nums[mid + 1]) {
-                    start = mid + 2; // Move start to the right of mid+1
-                } else {
-                    return nums[mid]; // Found the single non-duplicate element
+            if(mid%2 == 0){
+                if(mid!=0 && nums[mid] == nums[mid-1]){
+                    end = mid-2;
                 }
-            } else {
-                // If mid is odd, check both sides of mid
-                if (mid != nums.length - 1 && nums[mid] == nums[mid + 1]) {
-                    end = mid - 1; // Move end to the left of mid
-                } else if (mid != 0 && nums[mid] == nums[mid - 1]) {
-                    start = mid + 1; // Move start to the right of mid
-                } else {
-                    return nums[mid]; // Found the single non-duplicate element
+               else if(mid != nums.length-1 && nums[mid] == nums[mid+1]){
+                    start = mid+2;
+                }
+                else return nums[mid];
+            }
+            
+            else {
+                if(nums[mid]== nums[mid-1]){
+                    start = mid+1;
+                }
+                if(nums[mid]==nums[mid+1]){
+                    end = mid-1;
                 }
             }
         }
