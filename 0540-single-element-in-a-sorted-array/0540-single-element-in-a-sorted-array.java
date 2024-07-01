@@ -3,7 +3,6 @@ class Solution {
         int start = 0;
         int end = nums.length - 1;
         
-        // Edge case: If there's only one element, it must be the non-duplicate
         if (nums.length == 1) {
             return nums[0];
         }
@@ -11,7 +10,7 @@ class Solution {
         while (start <= end) {
             int mid = start + (end - start) / 2;
             
-            // Check if mid is even
+           
             if (mid % 2 == 0) {
                 // If mid is even, check both sides of mid
                 if (mid != 0 && nums[mid] == nums[mid - 1]) {
@@ -33,7 +32,6 @@ class Solution {
             }
         }
         
-        // If no single element is found during the while loop, return nums[start]
         return nums[start];
     }
 }
