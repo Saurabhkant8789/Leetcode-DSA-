@@ -1,9 +1,14 @@
 class Solution {
     public int minEatingSpeed(int[] piles, int h) {
-        Arrays.sort(piles);
+       int max = piles[0];
+        for(int i =1; i<piles.length;i++){
+            if(piles[i] > piles[0]){
+                max = piles[i];
+            }
+        }
         
         int start = 1;
-        int end = piles[piles.length-1];
+        int end = max;
         while(start<=end){
             int mid = start + (end-start)/2;
             // if(caneat(piles,mid)==h){
