@@ -1,33 +1,38 @@
 class Solution {
     public int[] findPeakGrid(int[][] mat) {
-        int startCol = 0;
-        int endCol = mat[0].length - 1;
+        int start =0;
+        int end = mat[0].length-1;
         
-        while (startCol <= endCol) {
-            int midCol = startCol + (endCol - startCol) / 2;
-            int maxRow = 0;
-            
-            for (int i = 0; i < mat.length; i++) {
-                if (mat[i][midCol] > mat[maxRow][midCol]) {
-                    maxRow = i;
+        
+        while(start<= end){
+            int mid = start +(end-start)/2;
+            int maxrow = 0;
+            int maxofrow = 0;
+            for(int i =0; i<mat.length;i++){
+                if(mat[i][mid] > maxofrow){
+                    maxrow = i;
+                    maxofrow = mat[i][mid];
                 }
             }
-            
-            boolean isPeak = true;
-            
-            if (midCol > 0 && mat[maxRow][midCol - 1] > mat[maxRow][midCol]) {
-                isPeak = false;
-                endCol = midCol - 1;
-            } else if (midCol < mat[0].length - 1 && mat[maxRow][midCol + 1] > mat[maxRow][midCol]) {
-                isPeak = false;
-                startCol = midCol + 1;
+            int left = -1;
+            if(mid!=0 ){
+                left = mat[maxrow][mid-1];
             }
             
-            if (isPeak) {
-                return new int[]{maxRow, midCol};
+            int right = -1;
+            if(mid!=mat[0].length-1){
+                right = mat[maxrow][mid+1];
             }
+            
+            if(mat[maxrow][mid] > left && mat[maxrow][mid] > right ){
+                return new int [] {maxrow,mid};
+            }
+            else if (mat[maxrow][mid] > left){
+                start = mid+1;
+            }
+            else end = mid-1;
+            
         }
-        
-        return new int[]{-1, -1}; // Should not happen as per problem statement
+        return new int []  {-1,-1};
     }
 }
