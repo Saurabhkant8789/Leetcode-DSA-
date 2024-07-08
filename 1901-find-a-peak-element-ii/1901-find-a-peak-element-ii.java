@@ -7,11 +7,11 @@ class Solution {
         while(start<= end){
             int mid = start +(end-start)/2;
             int maxrow = 0;
-            int maxofrow = 0;
+           
             for(int i =0; i<mat.length;i++){
-                if(mat[i][mid] > maxofrow){
+                if(mat[i][mid] > mat[maxrow][mid]){
                     maxrow = i;
-                    maxofrow = mat[i][mid];
+                  
                 }
             }
             int left = -1;
